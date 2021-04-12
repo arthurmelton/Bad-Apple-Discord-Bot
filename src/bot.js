@@ -14,6 +14,6 @@ fs.readFile('input.txt', 'utf8', function (err,data) {
         line++;
       }
       console.log("====================================");
-    }, 41 * i);
+    }, 50 * i);
   }
 });
