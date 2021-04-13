@@ -10,10 +10,9 @@
 git clone https://github.com/AMTitan/Bad-Apple-Discord-Bot.git
 cd Bad-Apple-Discord-Bot
 npm i
-touch .env
 ```
 
-Inside `.env` put 
+Make a file called `.env` and inside put 
 ```
 Token=(discord bot token)
 ```
