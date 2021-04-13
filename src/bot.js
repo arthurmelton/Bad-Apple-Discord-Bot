@@ -1,4 +1,5 @@
 require("dotenv").config();
+const imageToAscii = require("asciify-image");
   const { Client } = require('discord.js');
   const client = new Client();
 fs = require('fs');
@@ -14,31 +15,38 @@ client.on('ready', () => {
 client.on('message', (message) => {
   if (message.author.bot === true) return;
   if (message.content === "!help") {
-    message.channel.send("!play - plays bad apple at 30 fpm (frames per minute) and it takes 2hrs and 26 mins (I could run it faster but discord cant)");
+    message.channel.send("!play - plays bad apple at 40 fpm (frames per minute) and it takes 2hrs 44 mins and 18 secs (I could run it faster but discord cant)");
   }
   if (message.content === "!play") {
     console.log(`[${message.author.tag}]: ${message.content}`);
-    fs.readFile('input.txt', 'utf8', function (err,data) {
-      if (err) {
-        return console.log(err);
-      }
-      var newData = data.replaceAll("1", ":white_medium_square:").replaceAll("0", ":black_large_square:");
-      //const lines = data.split("\n");
-      const lines = data.split("\n");
-      var line = 0;
-      for (var i = 0; i < 4382; i++) {
+      var img = 1;
+      var newImg = 1;
+      for (var i = 0; i < 6572; i++) {
         setTimeout(() => {
-          var newMsg = "";
-          for (var c = 0; c < 28; c++) {
-            newMsg = `${newMsg}\n${lines[line]}`;
-            line++;
+          var newImg = `0${img}`;
+          for (var c = 0; c < 5; c++) {
+            if (newImg.length < 5) {
+              newImg = `0${newImg}`;
+            }
           }
-          newMsg = `${newMsg}`;
-          message.channel.send(newMsg);
-        }, 2000 * i);
+          imageToAscii(`./imgs/${newImg}.png`, {
+            fit:    'box',
+            width:  36,
+            height: 36,
+            color: false
+          }, (err, converted) => {
+            if (err) {
+              return console.log(err);
+            }
+            var edited = "```\n"+converted+"\n```";
+            console.log(newImg);
+            var newMsg = edited;
+            img++;
+            message.channel.send(newMsg);
+          })
+        }, 1500 * i);
       }
-    });
-  }
-})
+    }
+  });
 
 client.login(process.env.Token);
