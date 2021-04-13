@@ -39,7 +39,6 @@ client.on('message', (message) => {
               return console.log(err);
             }
             var edited = "```\n"+converted+"\n```";
-            console.log(newImg);
             var newMsg = edited;
             img++;
             message.channel.send(newMsg);
