@@ -25,4 +25,4 @@ npm run dev
 
 <h3>Usage</h3>
 
-- !play - plays bad apple at 30 fpm (frames per minute) and it takes 2hrs and 26 mins (I could run it faster but discord cant)
+- !play - plays bad apple at 40 fpm (frames per minute) and it takes 2hrs 44 mins and 18 secs (I could run it faster but discord cant)
