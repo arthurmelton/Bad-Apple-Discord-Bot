@@ -39,8 +39,12 @@ client.on('message', (message) => {
             if (err) {
               return console.log(err);
             }
+<<<<<<< HEAD
             var persent = (Math.round((img/max)*1000))/10;
             var edited = "```\n"+converted+"\n```"+persent+"%";
+=======
+            var edited = "```\n"+converted+"\n```";
+>>>>>>> 0fbe47c6b548e4dc54a994f859f42aed03352d9f
             var newMsg = edited;
             img++;
             message.channel.send(newMsg);
