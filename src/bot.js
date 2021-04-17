@@ -21,7 +21,8 @@ client.on('message', (message) => {
     console.log(`[${message.author.tag}]: ${message.content}`);
       var img = 1;
       var newImg = 1;
-      for (var i = 0; i < 6572; i++) {
+      var max = 6572;
+      for (var i = 0; i < max; i++) {
         setTimeout(() => {
           var newImg = `0${img}`;
           for (var c = 0; c < 5; c++) {
@@ -38,8 +39,8 @@ client.on('message', (message) => {
             if (err) {
               return console.log(err);
             }
-            var edited = "```\n"+converted+"\n```";
-            console.log(newImg);
+            var persent = (Math.round((img/max)*1000))/10;
+            var edited = "```\n"+converted+"\n```"+persent+"%";
             var newMsg = edited;
             img++;
             message.channel.send(newMsg);
