@@ -13,6 +13,6 @@
     "asciify-image": "^0.1.6",
     "discord.js": "^12.5.3",
     "dotenv": "^8.2.0",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.18"
   }
 }
